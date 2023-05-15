@@ -1,20 +1,24 @@
-function validateRollNumber(rollNumber) {
-  // Define the regular expression pattern
-  var pattern = /^\d{2}[A-Z]{3}\d{3}$/;
-  
-  // Test the roll number against the pattern
-  var isValid = pattern.test(rollNumber);
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roll Number Validation</title>
+  <script>
+    function validateRollNumber() {
+      var rollNumber = document.getElementById("rollNumberInput").value;
+      var pattern = /^\d{2}[A-Z]{3}\d{3}$/;
 
-  // Return the result
-  return isValid;
-}
-
-// Example usage
-var rollNumber = "20MER001";
-var isValidRollNumber = validateRollNumber(rollNumber);
-
-if (isValidRollNumber) {
-  console.log("Roll number is valid.");
-} else {
-  console.log("Roll number is invalid.");
-}
+      if (pattern.test(rollNumber)) {
+        document.getElementById("result").innerHTML = "Roll number is valid.";
+      } else {
+        document.getElementById("result").innerHTML = "Roll number is invalid.";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Roll Number Validation</h1>
+  <input type="text" id="rollNumberInput" placeholder="Enter roll number">
+  <button onclick="validateRollNumber()">Check Validity</button>
+  <p id="result"></p>
+</body>
+</html>
